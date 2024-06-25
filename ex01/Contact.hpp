@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 17:38:38 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/05/20 17:47:16 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/06/25 15:51:33 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class	Contact
 {
 	private:
+		int			phoneNumber;
 		std::string	firstName;
 		std::string	lastName;
 		std::string	nickname;
-		int			phoneNumber;
 		std::string	darkestSecret;
 };
 
