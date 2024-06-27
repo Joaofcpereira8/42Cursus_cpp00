@@ -6,7 +6,7 @@
 #    By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/17 18:25:28 by jofilipe          #+#    #+#              #
-#    Updated: 2024/06/25 17:04:05 by jofilipe         ###   ########.fr        #
+#    Updated: 2024/06/26 15:25:24 by jofilipe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -rf
 
-SRCS = PhoneBook.cpp
+SRCS = PhoneBook.cpp \
+		Contact.cpp \
+		main.cpp \
 
 OBJS = $(SRCS:%.cpp=%.o)
 
