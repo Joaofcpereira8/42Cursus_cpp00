@@ -15,10 +15,10 @@
 
 # include "header.hpp"
 
-class PhoneBook
-{
-	private:
-		std::string	contacts;
-};
+//class PhoneBook
+//{
+//	private:
+//		Contact	phoneBook[7];
+//};
 
 #endif //CPP00_PHONEBOOK_H

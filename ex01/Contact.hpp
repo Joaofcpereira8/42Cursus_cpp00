@@ -18,14 +18,19 @@
 class	Contact
 {
 	private:
-		int			phoneNumber;
+		std::string	phoneNumber;
 		std::string	firstName;
 		std::string	lastName;
 		std::string	nickname;
 		std::string	darkestSecret;
 
 	public:
-		void	getContactInfo(int num, char fName, char lName, char nick, char sec);
+		int		getContactInfo();
+		int		firstNameVerif();
+		int		lastNameVerif();
+		int		darkSecVerif();
+		int		numberVerif();
+		int		nickVerif();
 
 };
 

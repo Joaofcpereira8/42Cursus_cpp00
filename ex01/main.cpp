@@ -14,43 +14,22 @@
 
 int	main()
 {
-	Contact	contact;
-	char	input;
-	std::cout << "Please enter a command:";
-	std::cin >> input;
-	if (input.compare("ADD") == 0)
-	{
-		contact.getContactInfo();
-		char		fName;
-		char		lName;
-		char		nick;
-		char		sec;
-		int			temp;
-
-		std::cout << "Insert first name:" << std::endl;
-		std::cin >> input;
-		fName = input;
-
-		std::cout << "Insert last name:" << std::endl;
-		std::cin >> input;
-		lName = input;
-
-		std::cout << "Insert nickname:" << std::endl;
-		std::cin >> input;
-		nick = input;
-
-		std::cout << "Insert number:" << std::endl;
-		std::cin >> temp;
-		num = temp;
-
-		std::cout << "Insert the Darkest Secret:" << std::endl;
-		std::cin >> input;
-		sec = input;
+	Contact		contact;
+	std::string	input;
+	while (1) {
+		std::cout << "Please enter a command:";
+		std::getline(std::cin, input);
+		if (input == "ADD")
+		{
+			system("clear");
+			contact.getContactInfo();
+		}
+		else if (input == "SEARCH")
+		{
+			/* code */
+		}
+		else if (input == "EXIT")
+			return(0);
 	}
-	else if (input.compare("SEARCH") == 0)
-	{
-		/* code */
-	}
-	else if (input.compare("EXIT") == 0)
-		return(0);
+	return (0);
 }

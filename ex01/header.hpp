@@ -14,6 +14,7 @@
 # define HEADER_HPP
 
 # include <iostream>
+# include <cstdlib>
 # include "PhoneBook.hpp"
 # include "Contact.hpp"
 
