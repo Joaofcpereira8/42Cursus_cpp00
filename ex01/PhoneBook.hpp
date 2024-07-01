@@ -15,10 +15,17 @@
 
 # include "header.hpp"
 
-//class PhoneBook
-//{
-//	private:
-//		Contact	phoneBook[7];
-//};
+class PhoneBook
+{
+	private:
+		Contact	phoneBook[7];
+		int		contactCount;
+		int		index;
+
+	public:
+		PhoneBook(): contactCount(0), index(0);
+		void	getContact();
+		void	addContact();
+};
 
 #endif //CPP00_PHONEBOOK_H

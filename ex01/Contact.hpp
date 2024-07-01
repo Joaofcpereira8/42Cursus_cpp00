@@ -21,17 +21,17 @@ class	Contact
 		std::string	phoneNumber;
 		std::string	firstName;
 		std::string	lastName;
-		std::string	nickname;
+		std::string	nickName;
 		std::string	darkestSecret;
 
 	public:
-		int		getContactInfo();
+		int		inspectPhoneNum();
+		void	getContactInfo();
 		int		firstNameVerif();
 		int		lastNameVerif();
 		int		darkSecVerif();
 		int		numberVerif();
 		int		nickVerif();
-
 };
 
 #endif

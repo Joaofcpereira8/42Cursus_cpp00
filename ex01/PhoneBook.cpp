@@ -11,3 +11,11 @@
 /* ************************************************************************** */
 
 #include "header.hpp"
+
+void	PhoneBook::addContact(Contact &newContact) {
+	phoneBook[index] = newContact;
+	index = (index + 1) % 7;
+
+	if (contactCount < 7)
+		contactCount++;
+}

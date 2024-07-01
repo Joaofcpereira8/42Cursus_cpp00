@@ -13,70 +13,96 @@
 #include "header.hpp"
 
 int	Contact::firstNameVerif() {
-	if (firstName.empty()) {
+	while (firstName.empty()) {
 		std::cout << "First name is empty!" << std::endl;
-		return (-1);
+		std::cout << "Insert first name:" << std::endl;
+		std::getline(std::cin, firstName);
 	}
 	return (0);
 }
 
 int	Contact::lastNameVerif() {
-	if (lastName.empty()) {
+	while (lastName.empty()) {
 		std::cout << "Last name is empty!" << std::endl;
-		return (-1);
+		std::cout << "Insert last name:" << std::endl;
+		std::getline(std::cin, lastName);
 	}
 	return (0);
 }
 
 int	Contact::darkSecVerif() {
-	if (darkestSecret.empty()) {
-		std::cout << "Darkest secret is empty!" << std::endl;
-		return (-1);
+	while (darkestSecret.empty()) {
+		std::cout << "Darkest Secret is empty!" << std::endl;
+		std::cout << "Insert the Darkest Secret:" << std::endl;
+		std::getline(std::cin, darkestSecret);
 	}
 	return (0);
 }
 
 int	Contact::numberVerif() {
-	if (phoneNumber.empty()) {
+	while (phoneNumber.empty()) {
 		std::cout << "Phone number is empty!" << std::endl;
-		return (-1);
+		std::cout << "Insert Phone number:" << std::endl;
+		std::getline(std::cin, phoneNumber);
+	}
+	return (0);
+}
+
+int	Contact::inspectPhoneNum() {
+	for (std::string::size_type i = 0; i < phoneNumber.length(); ++i) {
+		if (!std::isdigit(phoneNumber[i])) {
+			std::cout << "Phone number as an invalid character!" << std::endl;
+			return (-1);
+		}
 	}
 	return (0);
 }
 
 int	Contact::nickVerif() {
-	if (nickname.empty()) {
-		std::cout << "First name is empty!" << std::endl;
-		return (-1);
+	while (nickName.empty()) {
+		std::cout << "Nickname is empty!" << std::endl;
+		std::cout << "Insert Nickname:" << std::endl;
+		std::getline(std::cin, nickName);
 	}
 	return (0);
 }
 
-int	Contact::getContactInfo() {
+void	Contact::getContactInfo() {
+	system("clear");
+
 	std::cout << "Insert first name:" << std::endl;
-	std::getline(std::cin, firstName);
-	if (firstNameVerif() == -1)
-		std::getline(std::cin, firstName);
+	if (!std::getline(std::cin, firstName))
+		return ;
+	firstNameVerif();
 
 	std::cout << "Insert last name:" << std::endl;
-	std::getline(std::cin, lastName);
-	if (lastNameVerif() == -1)
-		return (-1);
+	if (!std::getline(std::cin, lastName))
+		return ;
+	lastNameVerif();
 
 	std::cout << "Insert nickname:" << std::endl;
-	std::getline(std::cin, nickname);
-	if (nickVerif() == -1)
-		return (-1);
+	if (!std::getline(std::cin, nickName))
+		return ;
+	nickVerif();
 
 	std::cout << "Insert number:" << std::endl;
-	std::getline(std::cin, phoneNumber);
-	if (numberVerif() == -1)
-		return (-1);
+	if (!std::getline(std::cin, phoneNumber))
+		return ;
+	numberVerif();
+	while (inspectPhoneNum() == -1) {
+		std::cout << "Insert number:" << std::endl;
+		std::getline(std::cin, phoneNumber);
+	}
 
 	std::cout << "Insert the Darkest Secret:" << std::endl;
-	std::getline(std::cin, darkestSecret);
-	if (darkSecVerif() == -1)
-		return (-1);
+	if (!std::getline(std::cin, darkestSecret))
+		return ;
+	darkSecVerif();
 
-	return (0);
+	system("clear");
+	std::cout << "First Name: " << firstName << std::endl;
+	std::cout << "Last Name: " << lastName << std::endl;
+	std::cout << "Nickname: " << nickName << std::endl;
+	std::cout << "Phone Number: " << phoneNumber << std::endl;
+	std::cout << "Darkest Secret: " << darkestSecret << std::endl;
 }
