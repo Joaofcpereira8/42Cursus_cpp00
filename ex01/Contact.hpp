@@ -27,11 +27,11 @@ class	Contact
 	public:
 		int		inspectPhoneNum();
 		void	getContactInfo();
-		int		firstNameVerif();
-		int		lastNameVerif();
-		int		darkSecVerif();
-		int		numberVerif();
-		int		nickVerif();
+		int		firstNameVerif(Contact &contact);
+		int		lastNameVerif(Contact &contact);
+		int		darkSecVerif(Contact &contact);
+		int		numberVerif(Contact &contact);
+		int		nickVerif(Contact &contact);
 };
 
 #endif

@@ -23,9 +23,8 @@ class PhoneBook
 		int		index;
 
 	public:
-		PhoneBook(): contactCount(0), index(0);
 		void	getContact();
-		void	addContact();
+		void	addContact(Contact &newContact);
 };
 
 #endif //CPP00_PHONEBOOK_H
