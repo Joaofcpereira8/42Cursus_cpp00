@@ -15,32 +15,35 @@
 int	main()
 {
 	Contact		contact;
+	PhoneBook	phoneBook;
 	std::string	input;
 	system("clear");
+
 	while (1) {
 		std::cout << "Use ADD, SEARCH or EXIT" << std::endl;
-		std::cout << "Please enter a command:";
+		std::cout << BLUE <<  "Please enter a command:" << RESET;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			exit (2);
 		if (input == "ADD")
 		{
 			contact.getContactInfo();
-			std::cout << "This message will be cleared. Press Enter to return to the menu..." << std::endl;
+			std::cout << GREEN << "This message will be cleared. Press Enter to return to the menu..." << RESET << std::endl;
 			std::cin.get();
 			system("clear");
-			std::cout << "Screen cleared. Continuing with the program..." << std::endl;
+			std::cout << YELLOW << "Screen cleared. Continuing with the program..." << RESET << std::endl;
 		}
 		else if (input == "SEARCH")
 		{
-			/* code */
+			system("clear");
+			phoneBook.getContact();
 		}
 		else if (input == "EXIT")
 			return(0);
 		else
 		{
 			system("clear");
-			std::cout << "Command does not exist!" << std::endl;
+			std::cout << RED << "Command does not exist!" << RESET << std::endl;
 		}
-		if (std::cin.eof())
-			exit (2);
 	}
 }

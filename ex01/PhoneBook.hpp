@@ -14,6 +14,7 @@
 # define PHONEBOOK_HPP
 
 # include "header.hpp"
+# include "Contact.hpp"
 
 class PhoneBook
 {
@@ -23,6 +24,7 @@ class PhoneBook
 		int		index;
 
 	public:
+		PhoneBook(): contactCount (0), index (0) {}
 		void	getContact();
 		void	addContact(Contact &newContact);
 };
