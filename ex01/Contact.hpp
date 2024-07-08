@@ -25,17 +25,18 @@ class	Contact
 		std::string	darkestSecret;
 
 	public:
-		int		inspectPhoneNum(std::string phoneNum);
-		void	getContactInfo();
-		int		firstNameVerif(std::string firstName);
-		int		lastNameVerif(std::string lastName);
-		int		darkSecVerif(std::string darkSecret);
-		int		numberVerif(std::string phoneNum);
-		int		nickVerif(std::string nickName);
+		bool	exists;
+		//GETTERS
+		std::string	getLastName();
+		std::string	getNickName();
+		std::string	getFirstName();
 
-		std::string	getFirstName() const;
-		std::string	getLastName() const;
-		std::string	getNickName() const;
+		//SETTERS
+		void	setDarkSec(std::string str);
+		void	setLastName(std::string str);
+		void	setNickName(std::string str);
+		void	setPhoneNum(std::string str);
+		void	setFirstName(std::string str);
 };
 
 #endif

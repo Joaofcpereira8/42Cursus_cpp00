@@ -14,9 +14,9 @@
 
 int	main()
 {
-	Contact		contact;
-	PhoneBook	phoneBook;
 	std::string	input;
+	PhoneBook	phoneBook;
+
 	system("clear");
 
 	while (1) {
@@ -27,14 +27,14 @@ int	main()
 			exit (2);
 		if (input == "ADD")
 		{
-			contact.getContactInfo();
+			phoneBook.getContactInfo();
 		}
 		else if (input == "SEARCH")
 		{
 			phoneBook.getContact();
 		}
 		else if (input == "EXIT")
-			return(0);
+			return (0);
 		else
 		{
 			system("clear");

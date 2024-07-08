@@ -16,8 +16,10 @@
 # include <iostream>
 # include <cstdlib>
 # include <iomanip>
-# include "PhoneBook.hpp"
+# include <stdlib.h>
+
 # include "Contact.hpp"
+# include "PhoneBook.hpp"
 
 # define RESET       "\033[0m"
 # define BLACK       "\033[30m"

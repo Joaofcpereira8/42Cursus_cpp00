@@ -14,18 +14,29 @@
 # define PHONEBOOK_HPP
 
 # include "header.hpp"
-# include "Contact.hpp"
 
 class PhoneBook
 {
 	private:
-		Contact	phoneBook[7];
+		Contact			phoneBook[7];
 		static int		contactCount;
 		static int		index;
 
 	public:
-		void	getContact();
-		void	addContact(Contact &newContact);
+	//METHODS
+		void		getContact();
+		int			contactIndex();
+		void		getContactInfo();
+		void		defineContact(std::string info, std::string type);
+
+		std::string	nickVerif(std::string nickName);
+		int			numberVerif(std::string phoneNum);
+		std::string	lastNameVerif(std::string lastName);
+		std::string	darkSecVerif(std::string darkSecret);
+		std::string	firstNameVerif(std::string firstName);
+		int			inspectPhoneNum(std::string phoneNum);
+
+		std::string	adjust(std::string info);
 };
 
 #endif //CPP00_PHONEBOOK_H
