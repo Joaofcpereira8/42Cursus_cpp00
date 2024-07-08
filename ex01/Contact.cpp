@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 15:24:19 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/06/26 16:28:14 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/07/05 12:30:48 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,11 +115,11 @@ void	Contact::getContactInfo() {
 	darkSecVerif(addContact.darkestSecret);
 
 	system("clear");
-	std::cout << "First Name: " << addContact.firstName << std::endl;
-	std::cout << "Last Name: " << addContact.lastName << std::endl;
-	std::cout << "Nickname: " << addContact.nickName << std::endl;
-	std::cout << "Phone Number: " << addContact.phoneNumber << std::endl;
-	std::cout << "Darkest Secret: " << addContact.darkestSecret << std::endl;
 
 	phoneBook.addContact(addContact);
+
+	std::cout << GREEN << "This message will be cleared. Press Enter to return to the menu..." << RESET << std::endl;
+	std::cin.get();
+	system("clear");
+	std::cout << YELLOW << "Screen cleared. Continuing with the program..." << RESET << std::endl;
 }

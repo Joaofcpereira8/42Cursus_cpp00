@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:48:40 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/06/26 15:22:39 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/07/05 13:00:12 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ class PhoneBook
 {
 	private:
 		Contact	phoneBook[7];
-		int		contactCount;
-		int		index;
+		static int		contactCount;
+		static int		index;
 
 	public:
-		PhoneBook(): contactCount (0), index (0) {}
 		void	getContact();
 		void	addContact(Contact &newContact);
 };
