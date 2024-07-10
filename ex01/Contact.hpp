@@ -30,6 +30,8 @@ class	Contact
 		std::string	getLastName();
 		std::string	getNickName();
 		std::string	getFirstName();
+		std::string	getPhoneNum();
+		std::string	getDarkSecret();
 
 		//SETTERS
 		void	setDarkSec(std::string str);

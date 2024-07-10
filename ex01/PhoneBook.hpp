@@ -29,6 +29,9 @@ class PhoneBook
 		void		getContactInfo();
 		void		defineContact(std::string info, std::string type);
 
+		void		printTable();
+		void		contactDetails(int i);
+
 		std::string	nickVerif(std::string nickName);
 		int			numberVerif(std::string phoneNum);
 		std::string	lastNameVerif(std::string lastName);

@@ -148,6 +148,8 @@ void	PhoneBook::getContactInfo() {
 	defineContact(info, "darkSecret");
 
 	contactIndex();
+
+	std::cout << GREEN << "Contact added!\n" << RESET << std::endl;
 }
 
 std::string	PhoneBook::adjust(std::string info) {
@@ -157,6 +159,73 @@ std::string	PhoneBook::adjust(std::string info) {
 		return (info);
 }
 
+void PhoneBook::printTable() {
+	// Set the column width for each column
+	const int indexWidth = 5;
+	const int firstNameWidth = 15;
+	const int lastNameWidth = 15;
+	const int nickNameWidth = 15;
+
+	// Print table header
+	std::cout << std::setw(indexWidth) << "Index"
+			  << "|" << std::setw(firstNameWidth) << "First Name"
+			  << "|" << std::setw(lastNameWidth) << "Last Name"
+			  << "|" << std::setw(nickNameWidth) << "Nick Name"
+			  << "|" << std::endl;
+
+	// Print separator line
+	std::cout << std::string(indexWidth, '-') << "+"
+			  << std::string(firstNameWidth, '-') << "+"
+			  << std::string(lastNameWidth, '-') << "+"
+			  << std::string(nickNameWidth, '-') << "+"
+			  << std::endl;
+
+	// Print table rows
+	for (int i = 0; i < 7; i++) {
+		if (phoneBook[i].exists == true) {
+			std::cout << GREEN << std::setw(indexWidth) << i + 1 << RESET << "|"
+						<< GREEN << std::setw(firstNameWidth) << adjust(phoneBook[i].getFirstName()) << RESET << "|"
+						<< GREEN << std::setw(lastNameWidth) << adjust(phoneBook[i].getLastName()) << RESET << "|"
+						<< GREEN << std::setw(nickNameWidth) << adjust(phoneBook[i].getNickName()) << RESET << "|"
+						<< std::endl;
+		}
+	}
+}
+
+void PhoneBook::contactDetails(int i)
+{
+	std::string setVar = phoneBook[i - 1].getFirstName();
+	size_t len = setVar.size();
+
+	system("clear");
+
+	std::cout << "┌";
+	for (size_t j = 0; j < 22 + len; ++j) { std::cout << "~"; }
+	std::cout << "┐" << std::endl;
+	std::cout << "| Detailed info about " << setVar << " |";
+	std::cout << "\n├";
+	for (size_t j = 0; j < 22 + len; ++j) { std::cout << "~"; }
+	std::cout << "┘" << std::endl;
+	std::cout << "|Index No. : " << i << std::endl;
+	std::cout << "|First Name: " << setVar << std::endl;
+
+	setVar = phoneBook[i - 1].getLastName();
+	std::cout << "|Last Name : " << setVar << std::endl;
+
+	setVar = phoneBook[i - 1].getNickName();
+	std::cout << "|Nickname  : " << setVar << std::endl;
+
+	setVar = phoneBook[i - 1].getPhoneNum();
+	std::cout << "|Phone No. : " << setVar << std::endl;
+
+	setVar = phoneBook[i - 1].getDarkSecret();
+	std::cout << "|Darkest Secret: " << setVar << std::endl;
+	std::cout << "└";
+	for (size_t j = 0; j < 22 + len; ++j) { std::cout << "~"; }
+	std::cout << "\n\nPress Enter to continue";
+	std::cin.ignore();
+}
+
 void	PhoneBook::getContact() {
 	int			i;
 	std::string	index;
@@ -164,16 +233,9 @@ void	PhoneBook::getContact() {
 	system("clear");
 
 	while (1) {
-		for (int i = 0; i < 7; i++) {
-			if (phoneBook[i].exists == true) {
-				std::cout << std::endl;
-				std::cout << i + 1 << "|";
-				std::cout << std::setw(10) << adjust(phoneBook[i].getFirstName()) << "|";
-				std::cout << std::setw(10) << adjust(phoneBook[i].getLastName()) << "|";
-				std::cout << std::setw(10) << adjust(phoneBook[i].getNickName()) << "|";
-				std::cout << std::endl;
-			}
-		}
+		printTable();
+		std::cout << std::endl;
+
 		std::cout << WHITE << "To go to the menu, enter 0" << RESET << std::endl;
 		std::cout << BLUE << "Please enter contact's index:" << RESET;
 		getline(std::cin, index);
@@ -186,13 +248,8 @@ void	PhoneBook::getContact() {
 		}
 		else {
 			system("clear");
-			std::cout << std::endl;
-			std::cout << i;
-			std::cout << "|";
-			std::cout << std::setw(10) << adjust(phoneBook[i - 1].getFirstName()) << "|";
-			std::cout << std::setw(10) << adjust(phoneBook[i - 1].getLastName()) << "|";
-			std::cout << std::setw(10) << adjust(phoneBook[i - 1].getNickName()) << "|";
-			std::cout << std::endl;
+			contactDetails(i);
+			system("clear");
 		}
 		if (index.length() == 1 && index[0] == '0') {
 			system("clear");

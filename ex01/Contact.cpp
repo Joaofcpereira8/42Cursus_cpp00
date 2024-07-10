@@ -44,3 +44,11 @@ std::string Contact::getLastName() {
 std::string Contact::getNickName() {
 	return (nickName);
 }
+
+std::string Contact::getDarkSecret() {
+	return (darkestSecret);
+}
+
+std::string Contact::getPhoneNum() {
+	return (phoneNumber);
+}
