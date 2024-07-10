@@ -18,9 +18,9 @@ int PhoneBook::index = 0;
 int	PhoneBook::contactIndex() {
 	phoneBook[index].exists = true;
 
-	index = (index + 1) % 7;
+	index = (index + 1) % 8;
 
-	if (contactCount < 7) {
+	if (contactCount < 8) {
 		contactCount++;
 	}
 
@@ -65,7 +65,7 @@ int	PhoneBook::numberVerif(std::string phoneNum) {
 		if (phoneNum.empty())
 			std::cout << "Phone number is empty!" << std::endl;
 		else
-			std::cout << "Phone number has an invalid characters!" << std::endl;
+			std::cout << RED << "Phone number has invalid character/s!" << RESET << std::endl;
 		std::cout << "Insert phone number:" << std::endl;
 		if (std::cin.eof())
 			exit (2);
@@ -160,33 +160,27 @@ std::string	PhoneBook::adjust(std::string info) {
 }
 
 void PhoneBook::printTable() {
-	// Set the column width for each column
-	const int indexWidth = 5;
-	const int firstNameWidth = 15;
-	const int lastNameWidth = 15;
-	const int nickNameWidth = 15;
-
 	// Print table header
-	std::cout << std::setw(indexWidth) << "Index"
-			  << "|" << std::setw(firstNameWidth) << "First Name"
-			  << "|" << std::setw(lastNameWidth) << "Last Name"
-			  << "|" << std::setw(nickNameWidth) << "Nick Name"
+	std::cout << std::setw(5) << "Index"
+			  << "|" << std::setw(10) << "First Name"
+			  << "|" << std::setw(10) << "Last Name"
+			  << "|" << std::setw(10) << "Nick Name"
 			  << "|" << std::endl;
 
 	// Print separator line
-	std::cout << std::string(indexWidth, '-') << "+"
-			  << std::string(firstNameWidth, '-') << "+"
-			  << std::string(lastNameWidth, '-') << "+"
-			  << std::string(nickNameWidth, '-') << "+"
+	std::cout << std::string(5, '-') << "+"
+			  << std::string(10, '-') << "+"
+			  << std::string(10, '-') << "+"
+			  << std::string(10, '-') << "+"
 			  << std::endl;
 
 	// Print table rows
-	for (int i = 0; i < 7; i++) {
+	for (int i = 0; i < 8; i++) {
 		if (phoneBook[i].exists == true) {
-			std::cout << GREEN << std::setw(indexWidth) << i + 1 << RESET << "|"
-						<< GREEN << std::setw(firstNameWidth) << adjust(phoneBook[i].getFirstName()) << RESET << "|"
-						<< GREEN << std::setw(lastNameWidth) << adjust(phoneBook[i].getLastName()) << RESET << "|"
-						<< GREEN << std::setw(nickNameWidth) << adjust(phoneBook[i].getNickName()) << RESET << "|"
+			std::cout << GREEN << std::setw(5) << i + 1 << RESET << "|"
+						<< GREEN << std::setw(10) << adjust(phoneBook[i].getFirstName()) << RESET << "|"
+						<< GREEN << std::setw(10) << adjust(phoneBook[i].getLastName()) << RESET << "|"
+						<< GREEN << std::setw(10) << adjust(phoneBook[i].getNickName()) << RESET << "|"
 						<< std::endl;
 		}
 	}

@@ -18,7 +18,7 @@
 class PhoneBook
 {
 	private:
-		Contact			phoneBook[7];
+		Contact			phoneBook[8];
 		static int		contactCount;
 		static int		index;
 
