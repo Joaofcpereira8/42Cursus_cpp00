@@ -26,7 +26,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -rf
 
-SRCS = Megaphone.cpp
+SRCS = megaphone.cpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 

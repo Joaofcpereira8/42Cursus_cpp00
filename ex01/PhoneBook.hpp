@@ -39,7 +39,9 @@ class PhoneBook
 		std::string	firstNameVerif(std::string firstName);
 		int			inspectPhoneNum(std::string phoneNum);
 
+		int 		getTrueNumber();
 		std::string	adjust(std::string info);
+		bool		isOnlySpaces(const std::string& str);
 };
 
 #endif //CPP00_PHONEBOOK_H

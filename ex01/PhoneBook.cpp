@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <algorithm>
 #include "header.hpp"
 
 int PhoneBook::contactCount = 0;
@@ -27,9 +28,22 @@ int	PhoneBook::contactIndex() {
 	return (index);
 }
 
+int	PhoneBook::getTrueNumber() {
+	return contactCount;
+}
+
+bool PhoneBook::isOnlySpaces(const std::string& str) {
+	for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
+		if (!std::isspace(static_cast<unsigned char>(*it))) {
+			return false;
+		}
+	}
+	return true;
+}
+
 std::string	PhoneBook::firstNameVerif(std::string firstName) {
-	while (firstName.empty()) {
-		std::cout << "First name is empty!" << std::endl;
+	while (firstName.empty() || isOnlySpaces(firstName)) {
+		std::cout << RED << "First name is empty!" << RESET std::endl;
 		std::cout << "Insert first name:" << std::endl;
 		if (std::cin.eof())
 			exit (2);
@@ -39,8 +53,8 @@ std::string	PhoneBook::firstNameVerif(std::string firstName) {
 }
 
 std::string	PhoneBook::lastNameVerif(std::string lastName) {
-	while (lastName.empty()) {
-		std::cout << "Last name is empty!" << std::endl;
+	while (lastName.empty() || isOnlySpaces(lastName)) {
+		std::cout << RED << "Last name is empty!" << RESET << std::endl;
 		std::cout << "Insert last name:" << std::endl;
 		if (std::cin.eof())
 			exit (2);
@@ -50,9 +64,9 @@ std::string	PhoneBook::lastNameVerif(std::string lastName) {
 }
 
 std::string	PhoneBook::darkSecVerif(std::string darkSecret) {
-	while (darkSecret.empty()) {
+	while (darkSecret.empty() || isOnlySpaces(darkSecret)) {
 		std::cout << "Darkest Secret is empty!" << std::endl;
-		std::cout << "Insert the Darkest Secret:" << std::endl;
+		std::cout << RED << "Insert the Darkest Secret:" << RESET << std::endl;
 		if (std::cin.eof())
 			exit (2);
 		std::getline(std::cin, darkSecret);
@@ -63,7 +77,7 @@ std::string	PhoneBook::darkSecVerif(std::string darkSecret) {
 int	PhoneBook::numberVerif(std::string phoneNum) {
 	while (phoneNum.empty() || inspectPhoneNum(phoneNum) == -1) {
 		if (phoneNum.empty())
-			std::cout << "Phone number is empty!" << std::endl;
+			std::cout << RED << "Phone number is empty!" << RESET << std::endl;
 		else
 			std::cout << RED << "Phone number has invalid character/s!" << RESET << std::endl;
 		std::cout << "Insert phone number:" << std::endl;
@@ -83,8 +97,8 @@ int	PhoneBook::inspectPhoneNum(std::string phoneNum) {
 }
 
 std::string	PhoneBook::nickVerif(std::string nickName) {
-	while (nickName.empty()) {
-		std::cout << "Nickname is empty!" << std::endl;
+	while (nickName.empty() || isOnlySpaces(nickName)) {
+		std::cout << RED << "Nickname is empty!" << RESET << std::endl;
 		std::cout << "Insert Nickname:" << std::endl;
 		if (std::cin.eof())
 			exit (2);
@@ -175,7 +189,7 @@ void PhoneBook::printTable() {
 			  << std::endl;
 
 	// Print table rows
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < contactCount; i++) {
 		if (phoneBook[i].exists == true) {
 			std::cout << GREEN << std::setw(5) << i + 1 << RESET << "|"
 						<< GREEN << std::setw(10) << adjust(phoneBook[i].getFirstName()) << RESET << "|"
@@ -183,6 +197,8 @@ void PhoneBook::printTable() {
 						<< GREEN << std::setw(10) << adjust(phoneBook[i].getNickName()) << RESET << "|"
 						<< std::endl;
 		}
+		else
+			break ;
 	}
 }
 

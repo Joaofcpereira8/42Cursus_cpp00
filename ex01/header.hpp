@@ -17,6 +17,7 @@
 # include <cstdlib>
 # include <iomanip>
 # include <stdlib.h>
+# include <algorithm>
 
 # include "Contact.hpp"
 # include "PhoneBook.hpp"
