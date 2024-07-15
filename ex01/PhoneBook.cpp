@@ -6,7 +6,7 @@
 /*   By: jofilipe <jofilipe@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 15:54:28 by jofilipe          #+#    #+#             */
-/*   Updated: 2024/07/05 13:02:11 by jofilipe         ###   ########.fr       */
+/*   Updated: 2024/07/15 11:42:11 by jofilipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ int	PhoneBook::contactIndex() {
 	return (index);
 }
 
-int	PhoneBook::getTrueNumber() {
-	return contactCount;
-}
-
 bool PhoneBook::isOnlySpaces(const std::string& str) {
 	for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
 		if (!std::isspace(static_cast<unsigned char>(*it))) {
@@ -43,7 +39,7 @@ bool PhoneBook::isOnlySpaces(const std::string& str) {
 
 std::string	PhoneBook::firstNameVerif(std::string firstName) {
 	while (firstName.empty() || isOnlySpaces(firstName)) {
-		std::cout << RED << "First name is empty!" << RESET std::endl;
+		std::cout << RED << "First name is empty!" << RESET << std::endl;
 		std::cout << "Insert first name:" << std::endl;
 		if (std::cin.eof())
 			exit (2);
